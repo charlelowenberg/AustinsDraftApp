@@ -1,0 +1,102 @@
+<!--<p>team works!</p>-->
+ <!--template-driven form -->
+ <!-- I needed to import FormsModule, ReactiveFormsModule to get this working in app.module.ts-->
+ <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="Name">Name: </label>
+            <input
+              id="Name"
+              type="text"
+              formControlName="Name"
+            >
+           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="State">State: </label>
+            <input
+              id="State"
+              type="text"
+              formControlName="State"
+            >
+           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="City">City: </label>
+            <input
+              id="city"
+              type="text"
+              formControlName="City"
+            >
+           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="Owner">Owner: </label>
+            <input
+              id="owner"
+              type="text"
+              formControlName="Owner"
+            >
+           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="Coach">Coach: </label>
+            <input
+              id="coach"
+              type="text"
+              formControlName="Coach"
+            >
+           </div>
+        </div>
+        <div class="row">
+        <div class="col">
+          <label for="NumberOfSuperBowlTrophies">Number Of Super Bowl Trophies: </label>
+          <input
+            id="numberOfSuperBowlTrophies"
+            type="text"
+            formControlName="NumberOfSuperBowlTrophies"
+          >
+        </div >
+        <div class="row">
+          <div class="col">
+            <label for="massage"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+   <button class="button" type="submit">Add Team</button>
+   </form>
+  <br>
+  <div class="container">
+      <div class="row">
+        <div class="col-sm">Team Name</div>
+        <div class="col-sm">State</div>
+        <div class="col-sm">City</div>
+        <div class="col-sm">Owner</div>
+        <div class="col-sm">Coach</div>
+        <div class="col-sm">Superbowl Trophies</div>
+        <div class="col-sm"></div>
+      </div>
+      <div class="test" *ngFor="let team of teams">
+        <div class="row">
+          <div class="col-sm">{{ team.Name }}</div>
+          <div class="col-sm">{{ team.State}}</div>
+          <div class="col-sm">{{ team.City }}</div>
+          <div class="col-sm">{{ team.Owner }}</div>
+          <div class="col-sm"> {{ team.Coach }}</div>
+          <div class="col-sm">{{ team.NumberOfSuperBowlTrophies }}</div>
+          <button class="delete" title="delete team" (click)="deleteTeam(team)">Delete Team</button>
+        </div>
+     </div>
+
+  </div>
+
+
+
+
+
