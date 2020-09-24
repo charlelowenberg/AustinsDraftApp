@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { Team } from '../Models/team.model';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
-
-
 
 
 @Injectable({
@@ -23,11 +21,10 @@ export class TeamService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
   };
 
-  constructor(private http: HttpClient,
+    constructor(private http: HttpClient,
     private messageService: MessageService) {
 
    }
-
 
 
    createTeam(teams: Team): Observable<Team> {
@@ -85,7 +82,7 @@ export class TeamService {
 
   }
 
-  public updateHero(team: Team): Observable<Team> {
+  public updateTeam(team: Team): Observable<Team> {
     const url = `${this.url}/${team.TeamID}`;
     return this.http.put(url, team).pipe(
       tap(_ => this.log(`updated hero id=${team.TeamID}`)),

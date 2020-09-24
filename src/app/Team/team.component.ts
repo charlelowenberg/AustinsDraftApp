@@ -19,7 +19,6 @@ export class TeamComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder, private teamService: TeamService) { }
 
-
   ngOnInit() {
     this.teamForm = this.formBuilder.group({
       Name: ['', [Validators.required]],
@@ -37,13 +36,4 @@ export class TeamComponent implements OnInit{
   getTeams(){
     this.teamService.getTeams().subscribe(teams => {this.teams = teams; console.log(this.teams)});
   }
-
-  deleteTeam(team: Team): void {
-    if (confirm("Are you sure you want to delete team " + team.Name))
-    {
-      this.teams = this.teams.filter(h => h !== team);
-      this.teamService.deleteTeam(team).subscribe();
-    }
-  }
-
 }

@@ -34,7 +34,7 @@ export class TeamDetailComponent implements OnInit {
 
     save(): void {
       console.log(this.team);
-      this.teamService.updateHero(this.team)
+      this.teamService.updateTeam(this.team)
         .subscribe(() => this.goBack());
     }
 

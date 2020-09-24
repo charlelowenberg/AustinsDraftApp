@@ -36,14 +36,10 @@ export class TeamAddComponent implements OnInit {
   {
      const team = this.teamForm.value;
      this.createTeam(team);
-     this.router.navigate(['/team']);
   }
 
   createTeam(team: Team){
-    this.teamService.createTeam(team).subscribe(
-        (res) => console.log(res),
-        (err) => console.log(err)
-      );
+    this.teamService.createTeam(team).subscribe(() => this.goBack());
  }
 
  goBack(): void {
