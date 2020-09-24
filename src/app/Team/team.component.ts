@@ -9,7 +9,6 @@ import { Team } from '../Models/team.model'
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.css']
 })
-//
 @Injectable()
 
 export class TeamComponent implements OnInit{
