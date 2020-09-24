@@ -13,12 +13,6 @@ import { MessageService } from './message.service';
 })
 export class TeamService {
 
-
-  // headers = new HttpHeaders();
-  // headers.append({'Accept': 'application/json'});
-  // headers.append('Content-Type', 'application/json');
-  // headers.append('Access-Control-Allow-Origin', '*');
-
   selectedTeam: Team;
   teamList: Team[];
   //url = "https://localhost:44399/api/Teams";
@@ -26,8 +20,7 @@ export class TeamService {
 
 
   httpOptions = {
-    //headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
   };
 
   constructor(private http: HttpClient,
@@ -38,7 +31,6 @@ export class TeamService {
 
 
    createTeam(teams: Team): Observable<Team> {
-    //const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'}) };
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'}) };
     return this.http.post<Team>(this.url + '/Teams/',
     teams, httpOptions);
@@ -78,6 +70,26 @@ export class TeamService {
     return this.http.delete<Team>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted hero id=${id}`)),
       catchError(this.handleError<Team>('deleteTeam'))
+    );
+  }
+
+  public getTeamByID(id: number): Observable<Team>{
+
+    const url = `${this.url}/${id}`;
+    console.log("what is the url : " + url);
+    return this.http.get<Team>(url).pipe(
+      tap(_ => this.log(`fetched team id=${id}`)),
+      catchError(this.handleError<Team>(`getTeamByID id=${id}`))
+
+    );
+
+  }
+
+  public updateHero(team: Team): Observable<Team> {
+    const url = `${this.url}/${team.TeamID}`;
+    return this.http.put(url, team).pipe(
+      tap(_ => this.log(`updated hero id=${team.TeamID}`)),
+      catchError(this.handleError<any>('updateHero'))
     );
   }
 }

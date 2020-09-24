@@ -1,1 +1,20 @@
-<h1>The Header sfasfsafd</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <label class="navbar-brand">Austin's Football Draft</label>
+  <button class="navbar-toggler" type="button"
+          (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/team">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/player">Player</a>
+      </li>
+    </ul>
+  </div>
+</nav>

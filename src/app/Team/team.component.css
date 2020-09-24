@@ -1,10 +1,11 @@
 label {
-  width:180px;
+  width:80px;
   clear:left;
   text-align:right;
   padding-right:10px;
 }
 
-input, label {
+/* input, label {
   float:left;
-}
+} */
+

@@ -1,4 +1,4 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/008390e5-ef46-43af-b9fd-aa6a39c03ac5/resourceGroups/Football-Draft-API/providers/Microsoft.Web/sites/AustinsDraftApp",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/008390e5-ef46-43af-b9fd-aa6a39c03ac5/resourceGroups/AustinsDraftApp/providers/Microsoft.Web/sites/AustinsDraftApp"
 }

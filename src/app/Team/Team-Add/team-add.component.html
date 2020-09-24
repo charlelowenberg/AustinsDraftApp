@@ -1,0 +1,108 @@
+<div class="col-md-5 col-sm-7 col-13 text-right">
+  <button class="btn btn-warning" (click)="goBack()">Back</button>
+</div>
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+<!--<div *ngIf="team">-->
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="Name" class="col-sm-2 col-form-label">Name: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+
+          id="Name"
+          type="text"
+          formControlName="Name"
+          placeholder="Name">
+      </div>
+    </div>
+  </div>
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="State" class="col-sm-2 col-form-label">State: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+
+          id="State"
+          type="text"
+          formControlName="State"
+          placeholder="State"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="City" class="col-sm-2 col-form-label">City: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+
+          id="city"
+          type="text"
+          formControlName="City"
+          placeholder="City"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="Owner" class="col-sm-2 col-form-label">Owner: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+
+          id="owner"
+          type="text"
+          formControlName="Owner"
+          placeholder="Owner"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="Coach" class="col-sm-2 col-form-label">Coach: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+
+          id="coach"
+          type="text"
+          formControlName="Coach"
+          placeholder="Coach"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="NumberOfSuperBowlTrophies" class="col-sm-2 col-form-label">Trophies: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+
+          id="numberOfSuperBowlTrophies"
+          type="text"
+          formControlName="NumberOfSuperBowlTrophies"
+          placeholder="Super Bowl Trophies"
+        >
+      </div>
+    </div>
+  </div>
+ <!--</div>-->
+ <button class="btn btn-primary" type="submit">Add</button>
+</form>
+
