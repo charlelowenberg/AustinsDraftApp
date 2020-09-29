@@ -1,15 +1,37 @@
-<!--<p>player works!</p>-->
-<div class="row">
-  <div class="col" column p-3>
-    <p>Player Page Coming Soon!</p>
-    <!-- <label for="playerName">Player Name: </label>
-    <input type="text">
-  </div>
+<app-player-header></app-player-header>
+<div class="container text-left" >
+   <button class="nav-item nav-link-edit btn btn-danger" [routerLink] = "['/player-add']">Add</button>
 </div>
 <br>
-<div class="row">
-  <div class="col" column p-3>
-    <button class="btn btn-primary" type="button">Save</button> -->
-  </div>
+<div class="container">
+  <table class="table table-striped" *ngFor="let team of teams">
+    <br>
+    <h4>{{ team.Name }}</h4>
+    <div class="container">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Jersey #</th>
+          <th>Height</th>
+          <th>Weight</th>
+          <th>Position</th>
+          <th>College</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let player of players" >
+              <td *ngIf="team.TeamID == player.TeamID" >{{ player.FirstName }}&nbsp;&nbsp;&nbsp;{{ player.LastName }}</td>
+              <td *ngIf="team.TeamID == player.TeamID" >{{ player.JerseyNumber}}</td>
+              <td *ngIf="team.TeamID == player.TeamID" >{{ player.Height}}</td>
+              <td *ngIf="team.TeamID == player.TeamID" >{{ player.Weight }}</td>
+              <td *ngIf="team.TeamID == player.TeamID" >{{ player.Position }}</td>
+              <td *ngIf="team.TeamID == player.TeamID" >{{ player.College}}</td>
+              <td *ngIf="team.TeamID == player.TeamID" ><button class="nav-item nav-link-edit btn btn-primary" [routerLink] = "['/player-detail', player.PlayerID]">Edit</button></td>
+          </tr>
+      </tbody>
+    </div>
+  </table>
 </div>
+
 

@@ -1,0 +1,126 @@
+<app-player-header></app-player-header>
+<div class="col-md-5 col-sm-7 col-13 text-right">
+  <button class="btn btn-warning" (click)="goBack()">Back</button>
+</div>
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+<!--<div *ngIf="team">-->
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="FirstName" class="col-sm-2 col-form-label">First Name: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+          id="FirstName"
+          type="text"
+          formControlName="FirstName"
+          placeholder="First Name">
+      </div>
+    </div>
+  </div>
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="LastName" class="col-sm-2 col-form-label">Last Name: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+        id="LastName"
+        type="text"
+        formControlName="LastName"
+        placeholder="Last Name">
+      </div>
+    </div>
+  </div>
+
+   <!--Grid Row-->
+   <div class="form-group row">
+    <!--Material Input-->
+    <label for="TeamID" class="col-sm-2 col-form-label">Team Name: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <select formControlName="TeamID">
+           <option [(ngValue)]="team.TeamID" *ngFor ="let team of teams">{{team.Name}} </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="JerseyNumber" class="col-sm-2 col-form-label">Jersey Number: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <select formControlName="JerseyNumber">
+          <option [(ngValue)]="jerseyNumber.number" *ngFor ="let jerseyNumber of jerseyNumbers">{{jerseyNumber.number}} </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="Height" class="col-sm-2 col-form-label">Height: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+          id="height"
+          type="text"
+          formControlName="Height"
+          placeholder="Height"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="Weight" class="col-sm-2 col-form-label">Weight: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+          id="weight"
+          type="text"
+          formControlName="Weight"
+          placeholder="Weight"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!--Grid Row-->
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="Position" class="col-sm-2 col-form-label">Position: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+          id="position"
+          type="text"
+          formControlName="Position"
+          placeholder="Position"
+        >
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <!--Material Input-->
+    <label for="College" class="col-sm-2 col-form-label">College: </label>
+    <div class="col-sm-10">
+      <div class="md-form mt-0">
+        <input
+          id="college"
+          type="text"
+          formControlName="College"
+          placeholder="College"
+        >
+      </div>
+    </div>
+  </div>
+ <!--</div>-->
+ <button class="btn btn-primary" type="submit">Add</button>
+</form>
+

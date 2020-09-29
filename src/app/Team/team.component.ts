@@ -12,23 +12,12 @@ import { Team } from '../Models/team.model'
 @Injectable()
 
 export class TeamComponent implements OnInit{
-  public teamForm: FormGroup;
   teams: Team[]
   public routerLinkVariable = "/app-team-detail"; // the value of the variable is string!
 
   constructor(private formBuilder: FormBuilder, private teamService: TeamService) { }
 
   ngOnInit() {
-    this.teamForm = this.formBuilder.group({
-      Name: ['', [Validators.required]],
-      State: ['', [Validators.required]],
-      City: ['', [Validators.required]],
-      Owner: ['', [Validators.required]],
-      Coach: ['', [Validators.required]],
-      NumberOfSuperBowlTrophies: ['', [Validators.required]],
-      TeamColors: ['', [Validators.required]]
-    });
-
     this.getTeams();
   }
 
