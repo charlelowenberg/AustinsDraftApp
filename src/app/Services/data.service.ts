@@ -79,6 +79,7 @@ export const JerseyNumbers: Array<any> = [
   { number: 7},
   { number: 8},
   { number: 9},
+  { number: 10},
   { number: 11},
   { number: 12},
   { number: 13},
@@ -170,4 +171,65 @@ export const JerseyNumbers: Array<any> = [
   { number: 99},
 ];
 
+export const HeightFeet: Array<any> = [
+  { number: 1},
+  { number: 2},
+  { number: 3},
+  { number: 4},
+  { number: 5},
+  { number: 6},
+  { number: 7},
+];
+
+export const HeightInches: Array<any> = [
+  { number: 0},
+  { number: 1},
+  { number: 2},
+  { number: 3},
+  { number: 4},
+  { number: 5},
+  { number: 6},
+  { number: 7},
+  { number: 8},
+  { number: 9},
+  { number: 10},
+  { number: 11},
+  { number: 12},
+];
+
+
+export const Positions: Array<any> = [
+  { name: "QB"},
+  { name: "RB"},
+  { name: "FB"},
+  { name: "WR"},
+  { name: "TE"},
+  { name: "OL"},
+  { name: "C"},
+  { name: "G"},
+  { name: "LG"},
+  { name: "RG"},
+  { name: "T"},
+  { name: "LT"},
+  { name: "RT"},
+  { name: "K"},
+  { name: "KR"},
+  { name: "DL"},
+  { name: "DE"},
+  { name: "DT"},
+  { name: "NT"},
+  { name: "LB"},
+  { name: "ILB"},
+  { name: "OLB"},
+  { name: "LOLB"},
+  { name: "ROLB"},
+  { name: "MLB"},
+  { name: "DB"},
+  { name: "CB"},
+  { name: "FS"},
+  { name: "SS"},
+  { name: "S"},
+  { name: "P"},
+  { name: "PR"}
+  ]
 

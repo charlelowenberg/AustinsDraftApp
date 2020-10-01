@@ -1,12 +1,21 @@
 
  <app-team-header></app-team-header>
+ <div class="container text-left">
+  <button class="btn btn-danger" [routerLink] = "['/team-add']">Add</button>
+</div>
  <div class="container">
-   <div class="col-md-5 col-sm-7 col-13 text-right">
-    <button class="nav-item nav-link-edit btn btn-danger" [routerLink] = "['/team-add']">Add</button>
-   </div>
-   <div class="col-md-4 col-sm-6 col-12 p-2" *ngFor="let team of teams">
-     <div class="row">
-       <div class="col-sm">{{ team.Name }}</div>
-       <div class="col-sm"><button class="nav-item nav-link-edit btn btn-primary" [routerLink] = "['/team-detail', team.TeamID]">Edit</button></div>
-   </div>
- </div>
+    <table class="table" >
+      <thead>
+        <!-- <tr>
+          <th>Name</th>
+        </tr> -->
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+            <td><h4>{{ team.Name }}</h4></td>
+            <td><button class="nav-item nav-link-edit btn btn-primary" [routerLink] = "['/team-detail', team.TeamID]">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

@@ -7,7 +7,7 @@ import { TeamService } from '../../Services/team.service';
 import { PlayerService } from '../../Services/player.service';
 import { Team } from '../../Models/team.model';
 import { Player } from '../../Models/player.model';
-import { JerseyNumbers } from '../../Services/data.service'
+import { JerseyNumbers, Positions } from '../../Services/data.service'
 
 @Component({
   selector: 'app-player-detail',
@@ -18,6 +18,8 @@ export class PlayerDetailComponent implements OnInit {
   player: Player;
   public teams: Team[];
   jerseyNumbers = JerseyNumbers;
+  positions = Positions;
+
 
   constructor(
     private teamService: TeamService,

@@ -17,6 +17,8 @@ export class PlayerComponent implements OnInit {
   routerLinkVariable = "/app-team-detail"; // the value of the variable is string!
   teams: Team[];
   teamName;
+  public hideRuleContent:boolean[] = [];
+  public buttonName:any = 'Expand'; //'Collapse';
 
 
   constructor(
@@ -41,6 +43,11 @@ export class PlayerComponent implements OnInit {
     console.log("IDasfasfasdf : " +id);
     this.teamName = this.teams.find((item: any) => item.id === +id).Name;
     console.log("ths f team = " +this.teamName);
+  }
+
+  toggle(index) {
+    // toggle based on index
+    this.hideRuleContent[index] = !this.hideRuleContent[index];
   }
 
 }

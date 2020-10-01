@@ -7,7 +7,7 @@ import { PlayerService } from '../../Services/player.service';
 import { TeamService } from '../../Services/team.service';
 import { Player } from '../../Models/player.model';
 import { Team } from '../../Models/team.model';
-import { JerseyNumbers } from '../../Services/data.service'
+import { JerseyNumbers, Positions } from '../../Services/data.service'
 
 @Component({
   selector: 'app-player-add',
@@ -19,6 +19,8 @@ export class PlayerAddComponent implements OnInit {
   player: Player[];
   jerseyNumbers = JerseyNumbers;
   public teams: Team[];
+  positions = Positions;
+
 
   constructor(
     private formBuilder: FormBuilder,

@@ -2,16 +2,19 @@
 <div class="container text-left" >
    <button class="nav-item nav-link-edit btn btn-danger" [routerLink] = "['/player-add']">Add</button>
 </div>
-<br>
 <div class="container">
-  <table class="table table-striped" *ngFor="let team of teams">
-    <br>
+  <table class="table table-striped" *ngFor="let team of teams;let i = index">
     <h4>{{ team.Name }}</h4>
-    <div class="container">
+  <div >
+      <button class="btn btn-success btn-sm" (click)="toggle(i)">
+        {{hideRuleContent[i] ?  'Collapse':'Expand'}}
+      </button>
+  </div>
+    <div class="container" *ngIf="hideRuleContent[i]">
       <thead>
         <tr>
           <th>Name</th>
-          <th>Jersey #</th>
+          <th>Number</th>
           <th>Height</th>
           <th>Weight</th>
           <th>Position</th>
@@ -20,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let player of players" >
+          <tr *ngFor="let player of players">
               <td *ngIf="team.TeamID == player.TeamID" >{{ player.FirstName }}&nbsp;&nbsp;&nbsp;{{ player.LastName }}</td>
               <td *ngIf="team.TeamID == player.TeamID" >{{ player.JerseyNumber}}</td>
               <td *ngIf="team.TeamID == player.TeamID" >{{ player.Height}}</td>
