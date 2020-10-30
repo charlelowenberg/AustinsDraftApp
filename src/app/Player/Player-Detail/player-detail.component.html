@@ -1,5 +1,5 @@
 <app-player-header></app-player-header>
-<div class="col-md-5 col-sm-7 col-13 text-right">
+<div class="container1 col-md-5 col-sm-7 col-13 text-right">
   <button class="btn btn-warning" (click)="goBack()">Back</button>
 </div>
 <div *ngIf="player" class="p-5">
@@ -46,11 +46,20 @@
     </div>
   </div>
 
+  <!--Grid Row-->
   <div class="form-group row">
-    <label for="Height" class="col-sm-2 col-form-label">Height:</label>
+    <!--Material Input-->
+    <label for="HeightFeet" class="col-sm-2 col-form-label">Height: </label>
     <div class="col-sm-10">
       <div class="md-form mt-0">
-        <input [(ngModel)]="player.Height" placeholder="Height"/>
+        <select #select [(ngModel)]="player.HeightFeet">
+          <option *ngFor ="let heightfeet of heightFeet" [value]="heightfeet.number">{{heightfeet.number}} </option>
+        </select>
+        <label style="padding-right:10px;">feet</label>
+        <select #select [(ngModel)]="player.HeightInches">
+          <option [(ngValue)]="heightinches.number" *ngFor ="let heightinches of heightInches">{{heightinches.number}} </option>
+        </select>
+        <label>inches</label>
       </div>
     </div>
   </div>

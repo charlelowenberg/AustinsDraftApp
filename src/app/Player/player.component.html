@@ -1,40 +1,32 @@
-<app-player-header></app-player-header>
+ <app-player-header></app-player-header>
 <div class="container text-left" >
    <button class="nav-item nav-link-edit btn btn-danger" [routerLink] = "['/player-add']">Add</button>
 </div>
-<div class="container">
-  <table class="table table-striped" *ngFor="let team of teams;let i = index">
-    <h4>{{ team.Name }}</h4>
+<div *ngFor="let team of teams;let i = index"  class="container text-left">
+  <h4>{{ team.Name }}</h4>
   <div >
-      <button class="btn btn-success btn-sm" (click)="toggle(i)">
-        {{hideRuleContent[i] ?  'Collapse':'Expand'}}
-      </button>
-  </div>
-    <div class="container" *ngIf="hideRuleContent[i]">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Number</th>
-          <th>Height</th>
-          <th>Weight</th>
-          <th>Position</th>
-          <th>College</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let player of players">
-              <td *ngIf="team.TeamID == player.TeamID" >{{ player.FirstName }}&nbsp;&nbsp;&nbsp;{{ player.LastName }}</td>
-              <td *ngIf="team.TeamID == player.TeamID" >{{ player.JerseyNumber}}</td>
-              <td *ngIf="team.TeamID == player.TeamID" >{{ player.Height}}</td>
-              <td *ngIf="team.TeamID == player.TeamID" >{{ player.Weight }}</td>
-              <td *ngIf="team.TeamID == player.TeamID" >{{ player.Position }}</td>
-              <td *ngIf="team.TeamID == player.TeamID" >{{ player.College}}</td>
-              <td *ngIf="team.TeamID == player.TeamID" ><button class="nav-item nav-link-edit btn btn-primary" [routerLink] = "['/player-detail', player.PlayerID]">Edit</button></td>
-          </tr>
-      </tbody>
-    </div>
-  </table>
+    <button class="btn btn-success btn-sm" (click)="toggle(i)">
+      {{hideRuleContent[i] ?  'Collapse':'Expand'}}
+    </button>
 </div>
+<div *ngIf="hideRuleContent[i]">
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let player of players" cdkDrag>
+      <div *ngIf="team.TeamID == player.TeamID"  class="example-box">
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            {{ player.FirstName }}
+            {{ player.LastName }}&nbsp;&nbsp;
+            {{ player.JerseyNumber }}&nbsp;&nbsp;
+            {{ player.HeightFeet + '\'' }}{{ player.HeightInches + '\"'}}&nbsp;&nbsp;
+            {{ player.Weight }}&nbsp;&nbsp;
+            {{ player.Position }}&nbsp;&nbsp;
+            {{ player.College }}&nbsp;&nbsp;
+            <button class="nav-item nav-link-edit btn btn-primary" [routerLink] = "['/player-detail', player.PlayerID]">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 

@@ -1,8 +1,8 @@
 <app-player-header></app-player-header>
-<div class="col-md-5 col-sm-7 col-13 text-right">
+<div class="container1 col-md-5 col-sm-7 col-13 text-right">
   <button class="btn btn-warning" (click)="goBack()">Back</button>
 </div>
-<form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()" class="container">
 <!--<div *ngIf="team">-->
   <!--Grid Row-->
   <div class="form-group row">
@@ -62,15 +62,17 @@
   <!--Grid Row-->
   <div class="form-group row">
     <!--Material Input-->
-    <label for="Height" class="col-sm-2 col-form-label">Height: </label>
+    <label for="HeightFeet" class="col-sm-2 col-form-label">Height: </label>
     <div class="col-sm-10">
       <div class="md-form mt-0">
-        <input
-          id="height"
-          type="text"
-          formControlName="Height"
-          placeholder="Height"
-        >
+        <select formControlName="HeightFeet">
+          <option [(ngValue)]="htFoot.number" *ngFor ="let htFoot of htFeet">{{htFoot.number}} </option>
+        </select>
+        <label style="padding-right:10px;">feet</label>
+        <select formControlName="HeightInches">
+          <option [(ngValue)]="htInch.number" *ngFor ="let htInch of htInches">{{htInch.number}} </option>
+        </select>
+        <label>inches</label>
       </div>
     </div>
   </div>

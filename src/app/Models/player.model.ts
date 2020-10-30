@@ -5,9 +5,11 @@ export class Player {
      public FirstName: string,
      public LastName: string,
      public JerseyNumber: number,
-     public Height: string,
      public Weight: string,
      public Position: string,
-     public College: string
+     public College: string,
+     public HeightFeet: number,
+     public HeightInches: number,
+     public Order: number
      ){  }
 }

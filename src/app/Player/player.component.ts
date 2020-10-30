@@ -1,11 +1,15 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+
+import { Location } from '@angular/common';
 
 import { PlayerService } from '../Services/player.service';
 import { TeamService } from '../Services/team.service';
 import { Player } from '../Models/player.model'
 import { Team } from '../Models/team.model'
-
+import { NgModule } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-player',
@@ -13,22 +17,42 @@ import { Team } from '../Models/team.model'
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  players: Player[];
+  players: Player[] = [];
+  playersSorted: Player[] = [];
   routerLinkVariable = "/app-team-detail"; // the value of the variable is string!
   teams: Team[];
   teamName;
   public hideRuleContent:boolean[] = [];
   public buttonName:any = 'Expand'; //'Collapse';
 
-
   constructor(
     private playerService: PlayerService,
-    private teamService: TeamService) { }
+    private teamService: TeamService,
+    private location: Location
+    ) {
+
+    }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.players, event.previousIndex, event.currentIndex);
+
+    this.players.forEach(function(part, index, theArray) {
+      theArray[index].Order = index;
+    });
+
+    for (var i = 0, l = this.players.length; i < l; i++) {
+      this.playerService.updatePlayer(this.players[i]).subscribe();
+    }
+ }
+
+  goBack(): void {
+    this.location.back();
+  }
 
   ngOnInit() {
     this.getPlayers();
     this.getTeams();
-  }
+}
 
   getPlayers(){
     this.playerService.getPlayers().subscribe(players => {this.players = players; console.log(this.players)});
@@ -40,13 +64,10 @@ export class PlayerComponent implements OnInit {
   }
 
   logDropdownTeamName(id: number): void {
-    console.log("IDasfasfasdf : " +id);
     this.teamName = this.teams.find((item: any) => item.id === +id).Name;
-    console.log("ths f team = " +this.teamName);
   }
 
   toggle(index) {
-    // toggle based on index
     this.hideRuleContent[index] = !this.hideRuleContent[index];
   }
 

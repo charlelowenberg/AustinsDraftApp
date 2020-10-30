@@ -26,8 +26,7 @@ export class PlayerService {
 
     createPlayer(player: Player): Observable<Player> {
       console.log("FirstName3 : " + player.FirstName);
-      return this.http.post<Player>(this.url + '/Player/',
-    player);
+      return this.http.post<Player>(this.url + '/Player/', player);
   }
 
   public getPlayers(): Observable<Player[]>{
@@ -66,11 +65,14 @@ export class PlayerService {
   }
 
   public updatePlayer(player: Player): Observable<Player> {
+    console.log("updatePlayer = " + player.PlayerID);
     const url = `${this.url}/${player.PlayerID}`;
+    console.log("what is the url : " + url);
     return this.http.put(url, player).pipe(
       tap(_ => this.log(`updated hero id=${player.PlayerID}`)),
-      catchError(this.handleError<any>('updatePlayer'))
+      catchError(this.handleError<any>('updatePlayersafsf4444'))
     );
+
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

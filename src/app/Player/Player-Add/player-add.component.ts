@@ -7,7 +7,7 @@ import { PlayerService } from '../../Services/player.service';
 import { TeamService } from '../../Services/team.service';
 import { Player } from '../../Models/player.model';
 import { Team } from '../../Models/team.model';
-import { JerseyNumbers, Positions } from '../../Services/data.service'
+import { HeightFeet, HeightInches, JerseyNumbers, Positions } from '../../Services/data.service'
 
 @Component({
   selector: 'app-player-add',
@@ -15,11 +15,13 @@ import { JerseyNumbers, Positions } from '../../Services/data.service'
   styleUrls: ['./player-add.component.css']
 })
 export class PlayerAddComponent implements OnInit {
-  public playerForm: FormGroup;
-  player: Player[];
+  playerForm: FormGroup;
+  public player: Player[];
   jerseyNumbers = JerseyNumbers;
   public teams: Team[];
   positions = Positions;
+  public htFeet = HeightFeet;
+  public htInches = HeightInches;
 
 
   constructor(
@@ -33,10 +35,11 @@ export class PlayerAddComponent implements OnInit {
         LastName: [''],
         TeamID: [''],
         JerseyNumber: [''],
-        Height: [''],
         Weight: [''],
         Position: [''],
-        College: ['']
+        College: [''],
+        HeightFeet: [''],
+        HeightInches: ['']
       });
 
      }
@@ -59,8 +62,9 @@ getTeams(){
    }
 
    createPlayer(player: Player){
-    console.log("FirstName2 : " + player.FirstName);
-     this.playerService.createPlayer(player).subscribe(() => this.goBack());
+    console.log("Feet : " + player.HeightFeet);
+    console.log("Inches : " + player.HeightInches);
+    this.playerService.createPlayer(player).subscribe(() => this.goBack());
   }
 
   goBack(): void {

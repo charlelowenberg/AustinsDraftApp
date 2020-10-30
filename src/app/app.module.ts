@@ -17,6 +17,8 @@ import { PlayerAddComponent } from './Player/Player-Add/player-add.component';
 import { PlayerDetailComponent } from './Player/Player-Detail/player-detail.component';
 import { TeamHeaderComponent } from './header/team-header/team-header.component';
 import { PlayerHeaderComponent } from './header/player-header/player-header.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 
 const appRoutes: Routes = [
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    DragDropModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [HttpClientModule,TeamService],

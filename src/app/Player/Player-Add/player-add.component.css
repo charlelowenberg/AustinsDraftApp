@@ -1,0 +1,25 @@
+/* label {
+  width:180px;
+  clear:left;
+  text-align:right;
+
+} */
+
+/* input, label {
+  float:left;
+} */
+
+.container1{
+  border: 2px ;
+  width: 350px;
+  margin: 0px;
+  padding: 10px;
+}
+
+.container{
+  border: 2px ;
+  width: 700px;
+  margin: 0px;
+  padding: 10px;
+}
+
