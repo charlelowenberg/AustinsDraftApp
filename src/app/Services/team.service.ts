@@ -12,10 +12,10 @@ import { MessageService } from './message.service';
 export class TeamService {
 
   //url = "https://localhost:44399/api/Teams";
-  url = "https://footballdraftapi.azurewebsites.net/Api/Teams";
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
-  };
+  url = "https://austinlowenbergapi.com/Api/Teams";
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
+  // };
 
   selectedTeam: Team;
   teamList: Team[];
@@ -31,11 +31,13 @@ export class TeamService {
   }
 
   public getTeams(): Observable<Team[]>{
+    console.log("GetTeams1");
     return this.http.get<Team[]>(this.url)
     .pipe(
       tap(_ => this.log('fetched teams')),
       catchError(this.handleError<Team[]>('getTeams', []))
     );
+    console.log("GetTeams2");
   }
 
   private log(message: string) {
@@ -46,7 +48,7 @@ export class TeamService {
     const id = typeof team === 'number' ? team : team.TeamID;
     const url = `${this.url}/${id}`;
 
-    return this.http.delete<Team>(url, this.httpOptions).pipe(
+    return this.http.delete<Team>(url).pipe(
       tap(_ => this.log(`deleted team id=${id}`)),
       catchError(this.handleError<Team>('deleteTeam'))
     );

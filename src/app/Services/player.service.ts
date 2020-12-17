@@ -11,12 +11,12 @@ import { MessageService } from './message.service';
 })
 export class PlayerService {
 
-    httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
-    };
+    // httpOptions = {
+    //   headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'})
+    // };
 
     //url = "https://localhost:44399/api/Players";
-    url = "https://footballdraftapi.azurewebsites.net/Api/Players";
+    url = "https://austinlowenbergapi.com/Api/Players";
 
     selectedPlayer: Player;
     playerList: Player[];
@@ -46,7 +46,7 @@ export class PlayerService {
     const id = typeof player === 'number' ? player : player.PlayerID;
     const url = `${this.url}/${id}`;
 
-    return this.http.delete<Player>(url, this.httpOptions).pipe(
+    return this.http.delete<Player>(url).pipe(
       tap(_ => this.log(`deleted player id=${id}`)),
       catchError(this.handleError<Player>('deletePlayer'))
     );
